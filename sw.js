@@ -22,6 +22,7 @@ self.addEventListener('fetch', function(event) {
         .then(function(response) {
           caches.open(CACHE_NAME).then(function(cache) {
             cache.put(event.request, response);
+            return response;
           });
         })
         .catch(function() {
