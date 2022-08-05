@@ -130,6 +130,7 @@ window.addEventListener('click', (event) => {
     }
     if (event.target.hasClass("seed-select")) {
         seed = parseInt(byId("seed-field").value, 10);
+        byId("seed-label").textContent = seed;
         if (isNaN(seed)) {
             alert("please enter a valid number");
             return;

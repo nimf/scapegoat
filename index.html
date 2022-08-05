@@ -7,6 +7,13 @@
     <title>Scape Goat Helper</title>
     <link rel="stylesheet" href="./styles.css" />
     <script src="./app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/scapegoat/sw.js', {scope: '/scapegoat/'});
+            });
+        }
+    </script>
 </head>
 <body>
     <div id="scene">
@@ -41,8 +48,10 @@
 
             <button class="full-width-btn next-game">Next game</button>
             <button class="full-width-btn prev-game">Previous game</button>
+            <p class="text grey">Seed <span id="seed-label">0</span></p>
         </div>
         <button id="start-over-btn" class="full-width-btn">Start over</button>
+        <div class="version">v1.0</div>
     </div>
 </body>
 </html>
