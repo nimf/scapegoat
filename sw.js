@@ -1,5 +1,6 @@
-
-var CACHE_NAME = 'scapegoat-v1-cache';
+var APP_PREFIX = 'scapegoat_';
+var VERSION = 'v1' 
+var CACHE_NAME = APP_PREFIX + VERSION;
 
 var urlsToCache = [
   '/scapegoat/',
@@ -7,8 +8,8 @@ var urlsToCache = [
   '/scapegoat/styles.css',
 ];
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
+self.addEventListener('install', function(e) {
+  e.waitUntil(
     caches.open(CACHE_NAME)
       .then(function(cache) {
         return cache.addAll(urlsToCache);
@@ -16,19 +17,26 @@ self.addEventListener('install', function(event) {
   );
 });
 
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-      fetch(event.request)
-        .then(function(response) {
-          caches.open(CACHE_NAME).then(function(cache) {
-            cache.put(event.request, response);
-            return response;
-          });
+self.addEventListener('fetch', function (e) {
+    e.respondWith(
+        caches.match(e.request).then(function (request) {
+            return request || fetch(e.request);
         })
-        .catch(function() {
-          caches.match(event.request).then(function(response) {
-            return response;
-          });
+    )
+});
+
+self.addEventListener('activate', function (e) {
+    e.waitUntil(
+        caches.keys().then(function (keyList) {
+            var cacheAllowlist = keyList.filter(function (key) {
+                return key.indexOf(APP_PREFIX);
+            })
+            cacheAllowlist.push(CACHE_NAME);
+            return Promise.all(keyList.map(function (key, i) {
+            if (cacheAllowlist.indexOf(key) === -1) {
+                return caches.delete(keyList[i]);
+            }
+            }));
         })
     );
 });
