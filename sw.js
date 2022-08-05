@@ -4,6 +4,7 @@ var CACHE_NAME = APP_PREFIX + VERSION;
 
 var urlsToCache = [
   '/scapegoat/',
+  '/scapegoat/index.html',
   '/scapegoat/app.js',
   '/scapegoat/styles.css',
 ];
@@ -19,8 +20,8 @@ self.addEventListener('install', function(e) {
 
 self.addEventListener('fetch', function (e) {
     e.respondWith(
-        caches.match(e.request).then(function (request) {
-            return request || fetch(e.request);
+        caches.match(e.request).then(function (response) {
+            return response || fetch(e.request);
         })
     )
 });
