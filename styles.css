@@ -1,0 +1,57 @@
+body {
+    font-family: Helvetica, sans-serif;
+}
+
+.full-width-btn {
+    width: 100%;
+    padding: 1em;
+    margin-top: 1em;
+    font-size: 12pt;
+    font-weight: bold;
+    border-width: 1px;
+    border-radius: 4px;
+}
+
+.text {
+    text-align: center;
+}
+
+.big {
+    font-size: 200%;
+}
+
+.color-0 {
+    color: firebrick;
+    background-color: rgb(233, 145, 145);
+    border-color: firebrick;
+}
+
+.color-1 {
+    color: gold;
+    background-color: rgb(255, 244, 181);
+    border-color: gold;
+}
+
+.color-2 {
+    color: dodgerblue;
+    background-color: rgb(181, 215, 250);
+    border-color: dodgerblue;
+}
+
+.color-3 {
+    color: forestgreen;
+    background-color: rgb(149, 211, 149);
+    border-color: forestgreen
+}
+
+.color-4 {
+    color: darkorange;
+    background-color: rgb(255, 219, 175);
+    border-color: darkorange;
+}
+
+.color-5 {
+    color: blueviolet;
+    background-color: rgb(203, 165, 239);
+    border-color: blueviolet;
+}

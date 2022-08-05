@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scape Goat Helper</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js"></script>
+</head>
+<body>
+    <div id="scene">
+        <p class="text big">Scape Goat</p>
+        <div id="setup-screen">
+            <div id="setup-players">
+                <p class="text">Number of players:</p>
+                <button class="full-width-btn players-select" value="3">3</option>
+                <button class="full-width-btn players-select" value="4">4</option>
+                <button class="full-width-btn players-select" value="5">5</option>
+                <button class="full-width-btn players-select" value="6">6</option>
+            </div>
+            <div id="setup-color">
+                <p class="text">Pick your color:</p>
+                <button class="full-width-btn color-select color-0" value="0">Red</button>
+                <button class="full-width-btn color-select color-1" value="1">Yellow</button>
+                <button class="full-width-btn color-select color-2" value="2">Blue</button>
+                <button class="full-width-btn color-select color-3" value="3">Green</button>
+                <button class="full-width-btn color-select color-4" value="4">Orange</button>
+                <button class="full-width-btn color-select color-5" value="5">Purple</button>
+            </div>
+            <div id="setup-seed">
+                <p class="text">Enter seed number:</p>
+                <p class="text"><input id="seed-field" pattern="[0-9]*" /></p>
+                <button class="full-width-btn seed-select">Start</button>
+            </div>
+        </div>
+        <div id="game-screen">
+            <p class="text">Game <span id="game-label">0</span></p>
+
+            <p class="text">The scape goat is <span id="scapegoat-label"></span></p>
+
+            <button class="full-width-btn next-game">Next game</button>
+            <button class="full-width-btn prev-game">Previous game</button>
+        </div>
+        <button id="start-over-btn" class="full-width-btn">Start over</button>
+    </div>
+</body>
+</html>
