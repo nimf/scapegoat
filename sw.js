@@ -1,5 +1,5 @@
 var APP_PREFIX = 'scapegoat_';
-var VERSION = 'v1.0.1' 
+var VERSION = 'v1.0.2';
 var CACHE_NAME = APP_PREFIX + VERSION;
 
 var urlsToCache = [
